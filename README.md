@@ -38,7 +38,7 @@ A regular expression that matches all selectors to clean.
 
 An array of strings with properties to keep even if they have their initial value.
 
-### `disableShorthandWarning``
+### `disableShorthandWarning`
 > Default: false
 
 If the shorthand warnings get in your way you can disable them using this option.
