@@ -1,0 +1,71 @@
+{
+  "name": "postcss-clean-initial-values",
+  "version": "1.0.0",
+  "description": "PostCSS plugin for removing rules setting the initial value",
+  "keywords": [
+    "postcss",
+    "css",
+    "postcss-plugin",
+    "initial value"
+  ],
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint src/*.ts",
+    "ci-test": "npm run lint && npm run test",
+    "build": "tsc"
+  },
+  "author": "Albin Jacobsson <albin.jacobsson@gmail.com>",
+  "license": "MIT",
+  "repository": "Sertion/postcss-clean-initial-values",
+  "bugs": {
+    "url": "https://github.com/Sertion/postcss-clean-initial-values/issues"
+  },
+  "homepage": "https://github.com/Sertion/postcss-clean-initial-values",
+  "dependencies": {
+    "mdn-data": "^2.0.2",
+    "postcss": "^7.0.14"
+  },
+  "peerDependencies": {
+    "mdn-data": "2.x"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/plugin-transform-runtime": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/preset-typescript": "^7.3.3",
+    "@babel/runtime": "^7.4.3",
+    "@types/css-tree": "^1.0.0",
+    "@types/jest": "^24.0.11",
+    "@types/node": "^10.14.6",
+    "@typescript-eslint/eslint-plugin": "^1.7.0",
+    "@typescript-eslint/parser": "^1.7.0",
+    "babel-jest": "^24.7.1",
+    "css-tree": "^1.0.0-alpha.29",
+    "eslint": "^5.16.0",
+    "jest": "^24.7.1",
+    "typescript": "^3.4.5"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-typescript"
+    ],
+    "plugins": [
+      "@babel/transform-runtime"
+    ]
+  },
+  "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaVersion": 2018,
+      "sourceType": "module"
+    },
+    "extends": [
+      "plugin:@typescript-eslint/recommended"
+    ]
+  },
+  "jest": {
+    "verbose": true,
+    "rootDir": "src"
+  }
+}
