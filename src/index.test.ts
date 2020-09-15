@@ -1,12 +1,12 @@
 import postcss from 'postcss';
 
-import plugin from  './index';
+import { plugin } from  './index';
 import { Options } from 'interface-options';
 
 async function runWithWarning(
     input: string,
     output: string,
-    warningCount: number = 0,
+    warningCount = 0,
     opts?: Options,
 ): Promise<void> {
     const result = await postcss(plugin(opts)).process(input, { from: undefined });

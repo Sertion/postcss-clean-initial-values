@@ -1,4 +1,4 @@
-import { Root, Result, Rule, Plugin, Helpers } from 'postcss';
+import { Root, Rule, Plugin, Helpers } from 'postcss';
 
 import { Options } from './interface-options';
 import {
@@ -14,13 +14,13 @@ type Unknownify<T> = {
     [P in keyof T]: unknown;
 };
 
-module.exports = (
+export function plugin (
     {
         matchSelector = /.+/,
         keepLoneRule = null,
         disableShorthandWarning = false,
     }: Unknownify<Options> = {},
-): Plugin => {
+): Plugin {
 
     let keepLoneProperties: Set<string>;
 
@@ -57,6 +57,7 @@ module.exports = (
             });
         }
     }
-};
+}
 
-module.exports.postcss = true
+exports = plugin;
+exports.postcss = true;
