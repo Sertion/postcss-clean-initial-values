@@ -1,6 +1,6 @@
 {
   "name": "postcss-clean-initial-values",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "PostCSS plugin for removing rules setting the initial value",
   "keywords": [
     "postcss",
@@ -22,28 +22,29 @@
   },
   "homepage": "https://github.com/Sertion/postcss-clean-initial-values",
   "dependencies": {
-    "mdn-data": "^2.0.2",
-    "postcss": "^7.0.14"
+    "mdn-data": "^2.0.2"
   },
   "peerDependencies": {
-    "mdn-data": "2.x"
+    "mdn-data": "2.x",
+    "postcss": "^8.0.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.3",
-    "@babel/plugin-transform-runtime": "^7.4.3",
-    "@babel/preset-env": "^7.4.3",
-    "@babel/preset-typescript": "^7.3.3",
-    "@babel/runtime": "^7.4.3",
-    "@types/css-tree": "^1.0.0",
-    "@types/jest": "^24.0.11",
+    "@babel/core": "^7.11.6",
+    "@babel/plugin-transform-runtime": "^7.11.5",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-typescript": "^7.10.4",
+    "@babel/runtime": "^7.11.2",
+    "@types/css-tree": "^1.0.3",
+    "@types/jest": "^26.0.13",
     "@types/node": "^10.14.6",
-    "@typescript-eslint/eslint-plugin": "^1.7.0",
-    "@typescript-eslint/parser": "^1.7.0",
-    "babel-jest": "^24.7.1",
-    "css-tree": "^1.0.0-alpha.29",
-    "eslint": "^5.16.0",
-    "jest": "^24.7.1",
-    "typescript": "^3.4.5"
+    "@typescript-eslint/eslint-plugin": "^4.1.1",
+    "@typescript-eslint/parser": "^4.1.1",
+    "babel-jest": "^26.3.0",
+    "css-tree": "^1.0.0-alpha.39",
+    "eslint": "^7.9.0",
+    "jest": "^26.4.2",
+    "postcss": "^8.0.3",
+    "typescript": "^4.0.2"
   },
   "babel": {
     "presets": [

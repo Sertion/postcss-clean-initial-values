@@ -1,4 +1,4 @@
-import { plugin, Root, Result, Rule } from 'postcss';
+import { Root, Result, Rule, Plugin, Helpers } from 'postcss';
 
 import { Options } from './interface-options';
 import {
@@ -14,43 +14,37 @@ type Unknownify<T> = {
     [P in keyof T]: unknown;
 };
 
-export default plugin(
-    'postcss-clean-initial-values',
-    (
-        {
-            matchSelector = /.+/,
-            keepLoneRule = null,
-            disableShorthandWarning = false,
-        }: Unknownify<Options> = {},
-    ): (
-        root: Root,
-        result: Result,
-        ) => Promise<void> => {
+module.exports = (
+    {
+        matchSelector = /.+/,
+        keepLoneRule = null,
+        disableShorthandWarning = false,
+    }: Unknownify<Options> = {},
+): Plugin => {
 
-        let keepLoneProperties: Set<string>;
+    let keepLoneProperties: Set<string>;
 
-        if (!verifyMatchSelector(matchSelector)) {
-            throw new Error('[postcss-clean-initial-values] matchSelector must be a regular expression');
-        }
+    if (!verifyMatchSelector(matchSelector)) {
+        throw new Error('[postcss-clean-initial-values] matchSelector must be a regular expression');
+    }
 
-        if (!verifyKeepLoneRule(keepLoneRule)) {
-            throw new Error('[postcss-clean-initial-values] keepLoneRule must be an array of strings');
-        }
+    if (!verifyKeepLoneRule(keepLoneRule)) {
+        throw new Error('[postcss-clean-initial-values] keepLoneRule must be an array of strings');
+    }
 
-        if (!verifyDisableShorthandWardning(disableShorthandWarning)) {
-            throw new Error('[postcss-clean-initial-values] disableShorthandWarning must be a boolean');
-        }
+    if (!verifyDisableShorthandWardning(disableShorthandWarning)) {
+        throw new Error('[postcss-clean-initial-values] disableShorthandWarning must be a boolean');
+    }
 
-        if (keepLoneRule === null) {
-            keepLoneProperties = new Set(keepLoneDefaults);
-        } else {
-            keepLoneProperties = new Set(keepLoneRule);
-        }
+    if (keepLoneRule === null) {
+        keepLoneProperties = new Set(keepLoneDefaults);
+    } else {
+        keepLoneProperties = new Set(keepLoneRule);
+    }
 
-        return async (
-            root: Root,
-            result: Result,
-        ): Promise<void> => {
+    return {
+        postcssPlugin: 'postcss-clean-initial-values',
+        Root(root: Root, { result }: Helpers): void {
             root.walkRules(matchSelector, (rule: Rule): void => {
                 const duplicates = findDuplicates(rule);
 
@@ -61,6 +55,8 @@ export default plugin(
                     disableShorthandWarning,
                 );
             });
-        };
-    },
-);
+        }
+    }
+};
+
+module.exports.postcss = true
