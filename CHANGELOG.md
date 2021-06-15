@@ -1,6 +1,10 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 2.0.1 -- Update dependencies
+
+Updating a lot of dependencies as well as adding an engine field to the package.json.
+
 ## 2.0.0 -- PostCSS 8 support
 
 Updated to work with PostCSS 8.
